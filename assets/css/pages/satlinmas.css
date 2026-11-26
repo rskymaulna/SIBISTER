@@ -1,0 +1,36 @@
+.kegiatan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.kegiatan-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+.kegiatan-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+.kegiatan-body {
+    padding: 16px;
+}
+.kegiatan-body h3 {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.kegiatan-meta {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.kegiatan-meta i { color: var(--merah); width: 16px; }
+@media (max-width: 900px) { .kegiatan-grid { grid-template-columns: 1fr; } }
