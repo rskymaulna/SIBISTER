@@ -105,4 +105,34 @@
             }
         });
     }
+
+    // 4. Floating Action Bubbles: Scroll-to-Top (atas) + Pengaduan Cepat (bawah, kecuali di halaman pengaduan)
+    const normalizedPath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+    const inPages = normalizedPath.includes('/pages/');
+    const isPengaduanPage = normalizedPath.endsWith('/pengaduan.html');
+    const pengaduanUrl = inPages ? 'pengaduan.html' : 'pages/pengaduan.html';
+
+    const bubbleWrap = document.createElement('div');
+    bubbleWrap.className = 'floating-bubbles';
+    bubbleWrap.innerHTML = `
+        <button type="button" class="fab-btn fab-top" id="fabScrollTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        ${isPengaduanPage ? '' : `
+        <a href="${pengaduanUrl}" class="fab-btn fab-pengaduan" aria-label="Pengaduan Masyarakat" title="Pengaduan Cepat">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span class="fab-tooltip">Pengaduan Cepat</span>
+        </a>`}
+    `;
+    document.body.appendChild(bubbleWrap);
+
+    const btnTop = document.getElementById('fabScrollTop');
+    function toggleScrollTop() {
+        btnTop.classList.toggle('show', window.scrollY > 220);
+    }
+    btnTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', toggleScrollTop, { passive: true });
+    toggleScrollTop();
 })();
