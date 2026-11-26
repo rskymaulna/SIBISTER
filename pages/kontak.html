@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Layanan — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 24px;
+        }
+        .kontak-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .kontak-item:last-child { border-bottom: none; }
+        .kontak-item i {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #fff1f1;
+            color: var(--merah);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+        .form-kontak {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .form-kontak label { font-size: 13.5px; font-weight: 600; display: block; margin-bottom: 5px; }
+        .form-kontak input, .form-kontak textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d5d5d5;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .form-kontak textarea { min-height: 110px; resize: vertical; }
+        .kontak-alert {
+            display: none;
+            background: #e6f6ec;
+            color: #155724;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        @media (max-width: 850px) { .kontak-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html" class="active">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <a href="layanan.html">Layanan</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Kontak Layanan</span>
+    </div>
+</div>
+
+<section class="module-section">
+    <div class="container">
+        <div class="module-header">
+            <h1><i class="fa-solid fa-phone"></i> Kontak Satpol PP Kabupaten Fakfak</h1>
+            <p>Hubungi kantor atau posko piket Satuan Polisi Pamong Praja Kabupaten Fakfak untuk informasi layanan, koordinasi, maupun bantuan darurat.</p>
+        </div>
+
+        <div class="kontak-grid">
+            <div class="panel-box" style="margin-bottom:0;">
+                <h2><i class="fa-solid fa-building"></i> Informasi Kantor &amp; Jam Layanan</h2>
+                <div class="kontak-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div><strong>Alamat Kantor</strong><p style="font-size:14px;color:#555;">Jl. Dr. Salasa No. 01, Kabupaten Fakfak, Papua Barat</p></div>
+                </div>
+                <div class="kontak-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div><strong>Telepon / Posko Piket</strong><p style="font-size:14px;color:#555;">(0956) 22411 / Unit Reaksi Cepat 24 Jam</p></div>
+                </div>
+                <div class="kontak-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div><strong>Email Resmi</strong><p style="font-size:14px;color:#555;">satpolpp@fakfakkab.go.id</p></div>
+                </div>
+                <div class="kontak-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <div><strong>Jam Pelayanan Administrasi</strong><p style="font-size:14px;color:#555;">Senin – Jumat, 08:00 – 16:00 WIT (Posko Patroli &amp; Damkar Siaga 24 Jam)</p></div>
+                </div>
+                <img src="../assets/images/profil/peta-lokasi-kantor.jpeg" alt="Peta Lokasi Kantor Satpol PP Fakfak" style="width:100%;border-radius:8px;margin-top:14px;border:1px solid #eee;">
+            </div>
+
+            <div class="panel-box" style="margin-bottom:0;">
+                <h2><i class="fa-solid fa-envelope-open-text"></i> Kirim Pesan / Pertanyaan</h2>
+                <form class="form-kontak" id="formKontak">
+                    <div class="kontak-alert" id="kontakAlert">
+                        <i class="fa-solid fa-circle-check"></i> Pesan Anda telah diterima. Petugas kami akan segera menindaklanjuti pada jam kerja.
+                    </div>
+                    <div>
+                        <label for="namaKontak">Nama Lengkap</label>
+                        <input type="text" id="namaKontak" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div>
+                        <label for="emailKontak">Email / No. WhatsApp</label>
+                        <input type="text" id="emailKontak" placeholder="email@contoh.com atau 08xxxxxxxxxx" required>
+                    </div>
+                    <div>
+                        <label for="subjekKontak">Subjek</label>
+                        <input type="text" id="subjekKontak" placeholder="Perihal pesan Anda" required>
+                    </div>
+                    <div>
+                        <label for="pesanKontak">Isi Pesan</label>
+                        <textarea id="pesanKontak" placeholder="Tuliskan pertanyaan atau informasi Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-merah" style="border:none;cursor:pointer;align-self:flex-start;">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+document.getElementById('formKontak').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.reset();
+    document.getElementById('kontakAlert').style.display = 'block';
+});
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

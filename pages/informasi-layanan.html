@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Layanan — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .sop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .sop-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            border: 1px solid #eee;
+            border-top: 4px solid var(--merah);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .sop-card h3 {
+            font-size: 18px;
+            color: var(--merah);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sop-card ul {
+            margin: 10px 0 14px 18px;
+            list-style: disc;
+            color: #444;
+            font-size: 14px;
+        }
+        .sop-card ul li { margin-bottom: 6px; }
+        .sop-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 13px;
+        }
+        @media (max-width: 800px) { .sop-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html" class="active">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <a href="layanan.html">Layanan</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Informasi Layanan</span>
+    </div>
+</div>
+
+<section class="module-section">
+    <div class="container">
+        <div class="module-header">
+            <h1><i class="fa-solid fa-circle-info"></i> Standar &amp; Informasi Pelayanan Publik</h1>
+            <p>Ketentuan, persyaratan, prosedur, dan waktu penyelesaian berbagai jenis layanan publik Satpol PP Kabupaten Fakfak. Seluruh layanan tidak dipungut biaya (Gratis).</p>
+        </div>
+
+        <div class="sop-grid">
+            <div class="sop-card">
+                <h3><i class="fa-solid fa-bullhorn"></i> Layanan Pengaduan Masyarakat</h3>
+                <p style="font-size:14px;color:#555;">Pelaporan gangguan ketertiban umum, ketenteraman masyarakat, maupun dugaan pelanggaran Peraturan Daerah.</p>
+                <ul>
+                    <li>Sampaikan laporan melalui formulir online atau datang ke posko piket.</li>
+                    <li>Sertakan lokasi kejadian dan uraian singkat gangguan.</li>
+                    <li>Petugas melakukan verifikasi dan meneruskan ke regu operasional.</li>
+                </ul>
+                <div class="sop-meta">
+                    <span class="badge badge-info"><i class="fa-regular fa-clock"></i> Respon &lt; 6 Jam</span>
+                    <span class="badge badge-success"><i class="fa-solid fa-money-bill"></i> Biaya: Gratis</span>
+                </div>
+            </div>
+
+            <div class="sop-card">
+                <h3><i class="fa-solid fa-shield-halved"></i> Permohonan Pengamanan Kegiatan</h3>
+                <p style="font-size:14px;color:#555;">Dukungan pengamanan ketertiban untuk acara kemasyarakatan, keagamaan, maupun kegiatan resmi daerah.</p>
+                <ul>
+                    <li>Surat permohonan resmi ditujukan kepada Kepala Satpol PP Fakfak.</li>
+                    <li>Melampirkan jadwal, lokasi, dan estimasi jumlah peserta acara.</li>
+                    <li>Pengajuan minimal 3 hari kerja sebelum pelaksanaan.</li>
+                </ul>
+                <div class="sop-meta">
+                    <span class="badge badge-info"><i class="fa-regular fa-clock"></i> Proses 1-2 Hari Kerja</span>
+                    <span class="badge badge-success"><i class="fa-solid fa-money-bill"></i> Biaya: Gratis</span>
+                </div>
+            </div>
+
+            <div class="sop-card">
+                <h3><i class="fa-solid fa-fire-extinguisher"></i> Layanan Darurat Damkar &amp; Penyelamatan</h3>
+                <p style="font-size:14px;color:#555;">Penanganan kebakaran, evakuasi penyelamatan non-kebakaran, serta edukasi pencegahan kebakaran.</p>
+                <ul>
+                    <li>Siaga 24 jam melalui posko Damkar Satpol PP Kabupaten Fakfak.</li>
+                    <li>Sertakan titik lokasi dan patokan terdekat agar armada cepat tiba.</li>
+                    <li>Edukasi sekolah/instansi dapat diajukan melalui surat resmi.</li>
+                </ul>
+                <div class="sop-meta">
+                    <span class="badge badge-danger"><i class="fa-solid fa-bolt"></i> Siaga 24 Jam</span>
+                    <span class="badge badge-success"><i class="fa-solid fa-money-bill"></i> Biaya: Gratis</span>
+                </div>
+            </div>
+
+            <div class="sop-card">
+                <h3><i class="fa-solid fa-scale-balanced"></i> Konsultasi &amp; Sosialisasi Perda</h3>
+                <p style="font-size:14px;color:#555;">Pelayanan informasi mengenai ketentuan Peraturan Daerah dan Peraturan Bupati yang ditegakkan Satpol PP.</p>
+                <ul>
+                    <li>Akses daftar dan jadwal sosialisasi Perda pada menu Informasi Perda.</li>
+                    <li>Konsultasi langsung di Bidang Penegakan Perda pada jam kerja.</li>
+                    <li>Permintaan narasumber sosialisasi untuk kampung/kelurahan.</li>
+                </ul>
+                <div class="sop-meta">
+                    <span class="badge badge-info"><i class="fa-regular fa-clock"></i> Senin - Jumat (08:00 - 16:00 WIT)</span>
+                    <span class="badge badge-success"><i class="fa-solid fa-money-bill"></i> Biaya: Gratis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

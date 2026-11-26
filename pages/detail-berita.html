@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            background: #f0f0f0;
+            padding: 14px 0;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .breadcrumb a {
+            color: var(--merah);
+            font-weight: 500;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* === LAYOUT ARTIKEL === */
+        .artikel-section {
+            padding: 36px 0 60px;
+        }
+        .artikel-layout {
+            display: grid;
+            grid-template-columns: 2.3fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* === KONTEN ARTIKEL === */
+        .artikel-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+        }
+        .artikel-header {
+            padding: 28px 32px 20px;
+        }
+        .artikel-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--merah);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 14px;
+        }
+        .artikel-header h1 {
+            font-size: 28px;
+            line-height: 1.35;
+            color: #222;
+            margin-bottom: 16px;
+        }
+        .artikel-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 13.5px;
+            color: #666;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        .artikel-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .artikel-meta i {
+            color: var(--merah);
+        }
+
+        .artikel-cover {
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+
+        .artikel-body {
+            padding: 28px 32px 32px;
+        }
+        .artikel-body p {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #333;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        .artikel-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* === TAGS & AKSI === */
+        .artikel-footer {
+            padding: 20px 32px 28px;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .artikel-tags {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+        .tag-item {
+            background: #f4f4f4;
+            color: #555;
+            font-size: 12.5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid #e4e4e4;
+        }
+        .artikel-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: var(--merah);
+            color: var(--merah);
+            background: #fff5f5;
+        }
+        .btn-kembali-berita {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            font-weight: 600;
+            background: var(--merah);
+            color: #fff;
+            transition: background 0.2s;
+        }
+        .btn-kembali-berita:hover {
+            background: var(--merah-gelap);
+        }
+
+        /* === SIDEBAR === */
+        .sidebar-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 24px;
+        }
+        .sidebar-box h3 {
+            font-size: 17px;
+            color: var(--merah);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .related-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .related-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .related-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .related-item img {
+            width: 72px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+        .related-item h4 {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+            margin-bottom: 4px;
+            transition: color 0.2s;
+        }
+        .related-item:hover h4 {
+            color: var(--merah);
+        }
+        .related-item .tgl {
+            font-size: 12px;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .artikel-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .artikel-header,
+            .artikel-body,
+            .artikel-footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .artikel-header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header & Navbar -->
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html" class="active">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+        <a href="berita.html">Berita & Informasi</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+        <span id="breadcrumbTitle">Detail Berita</span>
+    </div>
+</div>
+
+<!-- Konten Artikel -->
+<section class="artikel-section">
+    <div class="container">
+        <div class="artikel-layout">
+            <!-- Artikel Utama -->
+            <article class="artikel-card">
+                <div class="artikel-header">
+                    <span class="artikel-badge" id="artikelKategori">Berita</span>
+                    <h1 id="artikelJudul">Memuat berita...</h1>
+                    <div class="artikel-meta">
+                        <span><i class="fa-regular fa-calendar"></i> <span id="artikelTanggal">-</span></span>
+                        <span><i class="fa-solid fa-user"></i> <span id="artikelPenulis">Admin Satpol PP</span></span>
+                        <span><i class="fa-solid fa-location-dot"></i> <span id="artikelLokasi">Kabupaten Fakfak</span></span>
+                    </div>
+                </div>
+
+                <img id="artikelGambar" class="artikel-cover" src="../assets/images/berita/penertiban-lapak-pkl.jpeg" alt="Dokumentasi Berita">
+
+                <div class="artikel-body" id="artikelIsi"></div>
+
+                <div class="artikel-footer">
+                    <div class="artikel-tags" id="artikelTags"></div>
+                    <div class="artikel-actions">
+                        <button type="button" class="btn-outline" id="btnSalinTautan">
+                            <i class="fa-solid fa-link"></i> Salin Tautan
+                        </button>
+                        <a href="berita.html" class="btn-kembali-berita">
+                            <i class="fa-solid fa-arrow-left"></i> Semua Berita
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-box">
+                    <h3><i class="fa-solid fa-fire"></i> Berita & Info Lainnya</h3>
+                    <ul class="related-list" id="relatedList"></ul>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3><i class="fa-solid fa-bullhorn"></i> Layanan Cepat</h3>
+                    <p style="font-size:14px;color:#555;margin-bottom:14px;">
+                        Temukan gangguan ketertiban umum atau pelanggaran Perda di sekitar Anda?
+                    </p>
+                    <a href="pengaduan.html" class="btn-kembali-berita" style="width:100%;justify-content:center;">
+                        <i class="fa-solid fa-paper-plane"></i> Buat Pengaduan
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/berita-data.js"></script>
+<script>
+(function () {
+    const daftar = window.SATPOL_BERITA || [];
+    if (!daftar.length) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    const artikel = daftar.find(item => item.slug === slug) || daftar[0];
+
+    document.title = `${artikel.judul} — SIBISTER | Satpol PP Fakfak`;
+    document.getElementById('breadcrumbTitle').textContent = artikel.judul;
+    document.getElementById('artikelKategori').textContent = artikel.kategori;
+    document.getElementById('artikelJudul').textContent = artikel.judul;
+    document.getElementById('artikelTanggal').textContent = artikel.tanggal;
+    document.getElementById('artikelPenulis').textContent = artikel.penulis;
+    document.getElementById('artikelLokasi').textContent = artikel.lokasi;
+
+    const imgEl = document.getElementById('artikelGambar');
+    imgEl.src = artikel.gambar;
+    imgEl.alt = artikel.judul;
+
+    const isiEl = document.getElementById('artikelIsi');
+    isiEl.innerHTML = '';
+    artikel.isi.forEach(paragraf => {
+        const p = document.createElement('p');
+        p.textContent = paragraf;
+        isiEl.appendChild(p);
+    });
+
+    const tagsEl = document.getElementById('artikelTags');
+    tagsEl.innerHTML = '';
+    (artikel.tags || []).forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag-item';
+        span.textContent = `#${tag}`;
+        tagsEl.appendChild(span);
+    });
+
+    const relatedEl = document.getElementById('relatedList');
+    const terkait = daftar.filter(item => item.slug !== artikel.slug).slice(0, 5);
+    relatedEl.innerHTML = '';
+    terkait.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <a href="detail-berita.html?slug=${encodeURIComponent(item.slug)}" class="related-item">
+                <img src="${item.gambar}" alt="">
+                <div>
+                    <h4></h4>
+                    <span class="tgl"><i class="fa-regular fa-calendar"></i> ${item.tanggal}</span>
+                </div>
+            </a>
+        `;
+        li.querySelector('img').alt = item.judul;
+        li.querySelector('h4').textContent = item.judul;
+        relatedEl.appendChild(li);
+    });
+
+    const btnSalin = document.getElementById('btnSalinTautan');
+    btnSalin.addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                btnSalin.innerHTML = '<i class="fa-solid fa-check"></i> Tautan Disalin';
+                setTimeout(() => {
+                    btnSalin.innerHTML = '<i class="fa-solid fa-link"></i> Salin Tautan';
+                }, 2000);
+            });
+        }
+    });
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

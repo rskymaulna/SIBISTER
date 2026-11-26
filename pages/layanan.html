@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Layanan Publik — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        body {
+            background: #f5f5f5;
+        }
+
+        /* =========================
+           KONTEN
+        ========================= */
+
+        .content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .content h2 {
+            color: #b40000;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .content > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* =========================
+           KARTU LAYANAN
+        ========================= */
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #b40000;
+            color: white;
+
+            border-radius: 10px;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-card a {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 9px 16px;
+
+            background: #b40000;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-size: 13px;
+        }
+
+        .service-card a:hover {
+            background: #8f0000;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 60px;
+
+            background: #a90000;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header & Navbar -->
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html" class="active">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- =========================
+         HALAMAN LAYANAN
+    ========================= -->
+
+    <main class="content">
+
+        <h2>
+            Layanan Satpol PP Kabupaten Fakfak
+        </h2>
+
+        <p>
+            Berbagai layanan informasi dan pelayanan kepada masyarakat
+            Kabupaten Fakfak.
+        </p>
+
+
+        <div class="service-container">
+
+
+            <!-- Layanan 1 -->
+
+            <div class="service-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+
+                <h3>
+                    Pengaduan Masyarakat
+                </h3>
+
+                <p>
+                    Masyarakat dapat menyampaikan pengaduan atau informasi
+                    terkait gangguan ketertiban umum dan ketenteraman masyarakat.
+                </p>
+
+                <a href="pengaduan.html">
+                    Selengkapnya
+                </a>
+
+            </div>
+
+
+            <!-- Layanan 2 -->
+
+            <div class="service-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <h3>
+                    Patroli
+                </h3>
+
+                <p>
+                    Kegiatan pengawasan dan pemantauan wilayah yang di lakukan oleh anggota Satpol PP
+                    secara rutin untuk mencegah, mendeteksi,dan menindak lanjuti potnesi gangguan 
+                    ketentraman dan ketertiban umum serta memberikan rasa aman kepada masyarakat.
+                </p>
+
+                <a href="patroli.html">
+                    Selengkapnya
+                </a>
+
+            </div>
+
+
+            <!-- Layanan 3 -->
+
+           <div class="service-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <h3>
+                    Informasi Layanan
+                </h3>
+
+                <p>
+                    Informasi mengenai jenis pelayanan, prosedur, persyaratan,
+                    serta ketentuan pelayanan Satpol PP.
+                </p>
+
+                <a href="informasi-layanan.html">
+                    Selengkapnya
+                </a>
+
+            </div>
+
+
+            <!-- Layanan 4 -->
+
+              <div class="service-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <h3>
+                    Kontak Layanan
+                </h3>
+
+                <p>
+                    Informasi kontak Satuan Polisi Pamong Praja Kabupaten
+                    Fakfak yang dapat digunakan oleh masyarakat.
+                </p>
+
+                <a href="kontak.html">
+                    Hubungi Kami
+                </a>
+
+            </div>
+
+
+          
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Satuan Polisi Pamong Praja Kabupaten Fakfak
+        </p>
+
+        <p>
+            Tugas • Humanis • Profesional
+        </p>
+
+    </footer>
+
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

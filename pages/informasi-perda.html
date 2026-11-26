@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penegakan & Informasi Perda — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        :root {
+            --merah-utama: #b00000;
+            --kuning-aksen: #ffd100;
+            --putih: #ffffff;
+            --abu-terang: #f5f5f5;
+            --teks-gelap: #333333;
+        }
+
+        /* Konten Halaman */
+        main.container {
+            margin: 30px auto;
+        }
+
+        .page-title {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--merah-utama);
+        }
+
+        .page-title h2 {
+            font-size: 1.8rem;
+            color: var(--merah-utama);
+        }
+
+        .perda-section {
+            margin-bottom: 40px;
+        }
+
+        .perda-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--merah-utama);
+        }
+
+        .perda-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .perda-list th, .perda-list td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .perda-list th {
+            background: var(--merah-utama);
+            color: var(--putih);
+        }
+
+        .perda-list tr:hover {
+            background: var(--abu-terang);
+        }
+
+        .btn-unduh {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--kuning-aksen);
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-unduh:hover {
+            background: #e6bc00;
+        }
+
+        .info-box {
+            background: #fff8dc;
+            padding: 20px;
+            border-left: 4px solid var(--kuning-aksen);
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: var(--putih);
+            padding: 30px 5%;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        @media (max-width: 600px) {
+            .perda-list {
+                font-size: 11.5px;
+            }
+            .perda-list th,
+            .perda-list td {
+                padding: 8px 6px;
+                word-break: break-word;
+            }
+            .btn-unduh {
+                font-size: 11px;
+                padding: 5px 8px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header & Navbar -->
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html" class="active">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- Konten Halaman -->
+    <main class="container">
+        <div class="page-title">
+            <h2>PENEGAKAN &amp; INFORMASI PERATURAN DAERAH</h2>
+            <p>Statistik penindakan pelanggaran Perda, rincian tindak lanjut, serta daftar Peraturan Daerah Kabupaten Fakfak</p>
+        </div>
+
+        <section class="perda-section">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="kpi-info"><h3 id="kpiPerdaTotal">0</h3><p>Total Kasus Pelanggaran</p></div>
+                </div>
+                <div class="kpi-card hijau">
+                    <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="kpi-info"><h3 id="kpiPerdaSelesai">0</h3><p>Selesai Ditindaklanjuti</p></div>
+                </div>
+                <div class="kpi-card biru">
+                    <div class="kpi-icon"><i class="fa-solid fa-spinner"></i></div>
+                    <div class="kpi-info"><h3 id="kpiPerdaProses">0</h3><p>Dalam Proses</p></div>
+                </div>
+                <div class="kpi-card oranye">
+                    <div class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="kpi-info"><h3 id="kpiPerdaPeringatan">0</h3><p>Tahap Peringatan</p></div>
+                </div>
+            </div>
+
+            <div class="panel-box">
+                <h2><i class="fa-solid fa-chart-bar"></i> Statistik Penegakan Perda Berdasarkan Status</h2>
+                <div class="chart-canvas-wrap" style="height:240px;">
+                    <canvas id="chartPerda"></canvas>
+                </div>
+            </div>
+
+            <div class="panel-box">
+                <h2><i class="fa-solid fa-clipboard-list"></i> Rincian Kasus Penegakan Perda</h2>
+                <div class="filter-controls">
+                    <input type="text" id="cariKasusPerda" placeholder="Cari jenis pelanggaran, lokasi, atau nomor Perda...">
+                    <select id="filterStatusPerda">
+                        <option value="">Semua Status</option>
+                        <option value="Selesai">Selesai</option>
+                        <option value="Diproses">Diproses</option>
+                        <option value="Peringatan">Peringatan</option>
+                    </select>
+                </div>
+                <div class="data-table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Jenis Pelanggaran &amp; Perda</th>
+                                <th>Lokasi Kejadian</th>
+                                <th>Bentuk Tindak Lanjut</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelKasusPerda"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="daftar-perda" class="perda-section">
+            <h3>Daftar Peraturan Daerah yang Ditegakkan</h3>
+            <table class="perda-list">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nomor & Tahun Perda</th>
+                        <th>Judul Peraturan Daerah</th>
+                        <th>Unduh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Perda No. 01 Tahun 2022</td>
+                        <td>Ketertiban Umum dan Ketenteraman Masyarakat</td>
+                        <td><a href="../assets/docs/perda/perda-01-2022.pdf" class="btn-unduh">Unduh PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Perda No. 05 Tahun 2022</td>
+                        <td>Pengelolaan Kebersihan dan Lingkungan Hidup</td>
+                        <td><a href="../assets/docs/perda/perda-05-2022.pdf" class="btn-unduh">Unduh PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Perda No. 03 Tahun 2023</td>
+                        <td>Pengendalian Perdagangan dan Pelaku Usaha</td>
+                        <td><a href="../assets/docs/perda/perda-03-2023.pdf" class="btn-unduh">Unduh PDF</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Perda No. 08 Tahun 2023</td>
+                        <td>Penyelenggaraan Ketertiban Bangunan dan Izin</td>
+                        <td><a href="../assets/docs/perda/perda-08-2023.pdf" class="btn-unduh">Unduh PDF</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="sosialisasi-perda" class="perda-section">
+            <h3>Jadwal Sosialisasi Perda</h3>
+            <p>Sosialisasi Peraturan Daerah dilaksanakan secara berkala di berbagai wilayah Kabupaten Fakfak. Masyarakat diundang untuk hadir dan memahami ketentuan yang berlaku.</p>
+            
+            <table class="perda-list" style="margin-top: 15px;">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Tempat</th>
+                        <th>Materi</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20 September 2026</td>
+                        <td>Aula Kantor Bupati Fakfak</td>
+                        <td>Perda Ketertiban Umum</td>
+                        <td>Terbuka untuk Umum</td>
+                    </tr>
+                    <tr>
+                        <td>27 September 2026</td>
+                        <td>Kecamatan Kokas</td>
+                        <td>Perda Lingkungan Hidup</td>
+                        <td>Undangan Perangkat Desa & Tokoh Masyarakat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="mekanisme-penegakan" class="perda-section">
+            <h3>Mekanisme Penegakan Perda</h3>
+            <p>Penegakan Peraturan Daerah dilaksanakan melalui tahapan-tahapan berikut:</p>
+            
+            <ol style="margin: 15px 0 15px 25px;">
+                <li><strong>Pembinaan & Sosialisasi</strong> — Pemberian pemahaman kepada masyarakat sebelum penindakan</li>
+                <li><strong>Peringatan Lisan/Tertulis</strong> — Teguran pertama kepada pelanggar</li>
+                <li><strong>Pembinaan Khusus</strong> — Bimbingan kepada yang melakukan pelanggaran</li>
+                <li><strong>Tindakan Penertiban</strong> — Pengamanan dan penertiban sesuai kewenangan</li>
+                <li><strong>Penanganan Pelanggaran</strong> — Proses hukum/sanksi administratif sesuai ketentuan</li>
+            </ol>
+
+            <div class="info-box">
+                <strong><i class="fa-solid fa-bullhorn"></i> Informasi Penting:</strong>
+                <p>Jika Anda menemukan pelanggaran Perda, silakan sampaikan melalui menu <strong>Layanan <i class="fa-solid fa-arrow-right" style="font-size:12px;"></i> Pengaduan Masyarakat</strong> atau datang langsung ke Kantor Satpol PP Kabupaten Fakfak.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Jl. Poros Fakfak — Kramat, Fakfak, Papua Barat Daya</p>
+            </div>
+            <div>
+                <h4>Kontak</h4>
+                <p><i class="fa-solid fa-phone"></i> (0956) xxxxxx<br><i class="fa-solid fa-envelope"></i> satpolpp@fakfakkab.go.id</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="../assets/js/portal-data.js"></script>
+<script>
+(function () {
+    const kasus = window.SATPOL_DATA.penegakanPerda;
+    const selesai = kasus.filter(x => x.status === 'Selesai').length;
+    const proses = kasus.filter(x => x.status === 'Diproses').length;
+    const peringatan = kasus.filter(x => x.status === 'Peringatan').length;
+
+    document.getElementById('kpiPerdaTotal').textContent = kasus.length;
+    document.getElementById('kpiPerdaSelesai').textContent = selesai;
+    document.getElementById('kpiPerdaProses').textContent = proses;
+    document.getElementById('kpiPerdaPeringatan').textContent = peringatan;
+
+    if (typeof Chart !== 'undefined') {
+        new Chart(document.getElementById('chartPerda'), {
+            type: 'bar',
+            data: {
+                labels: ['Selesai', 'Diproses', 'Peringatan'],
+                datasets: [{ label: 'Jumlah Kasus', data: [selesai, proses, peringatan], backgroundColor: ['#198754', '#0d6efd', '#f59e0b'], borderRadius: 6 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+        });
+    }
+
+    function badge(s) {
+        if (s === 'Selesai') return 'badge-success';
+        if (s === 'Diproses') return 'badge-info';
+        return 'badge-warning';
+    }
+
+    function render() {
+        const q = document.getElementById('cariKasusPerda').value.toLowerCase();
+        const st = document.getElementById('filterStatusPerda').value;
+        const filtered = kasus.filter(k => (!st || k.status === st) && (!q || `${k.jenis} ${k.perda} ${k.lokasi} ${k.tindakLanjut}`.toLowerCase().includes(q)));
+        document.getElementById('tabelKasusPerda').innerHTML = filtered.length ? filtered.map(k => `
+            <tr>
+                <td>${k.tanggal}</td>
+                <td><strong>${k.jenis}</strong><br><small style="color:#666;">${k.perda}</small></td>
+                <td>${k.lokasi}</td>
+                <td>${k.tindakLanjut}</td>
+                <td><span class="badge ${badge(k.status)}">${k.status}</span></td>
+            </tr>
+        `).join('') : '<tr><td colspan="5" style="text-align:center;color:#888;">Data pelanggaran tidak ditemukan.</td></tr>';
+    }
+
+    document.getElementById('cariKasusPerda').addEventListener('input', render);
+    document.getElementById('filterStatusPerda').addEventListener('change', render);
+    render();
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

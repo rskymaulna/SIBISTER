@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaduan Masyarakat — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .pengaduan-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px 12px;
+            border: 1px solid #d5d5d5;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            min-height: 92px;
+            resize: vertical;
+        }
+        .alert-tiket {
+            display: none;
+            background: #e6f6ec;
+            border: 1px solid #b7ebc9;
+            color: #155724;
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        @media (max-width: 900px) {
+            .pengaduan-layout, .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html" class="active">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <a href="layanan.html">Layanan</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Pengaduan Masyarakat</span>
+    </div>
+</div>
+
+<section class="module-section">
+    <div class="container">
+        <div class="module-header">
+            <h1><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</h1>
+            <p>Statistik transparansi penyelesaian pengaduan serta kanal pelaporan online gangguan ketertiban umum dan pelanggaran Perda di Kabupaten Fakfak.</p>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-solid fa-inbox"></i></div>
+                <div class="kpi-info">
+                    <h3 id="statTotal">0</h3>
+                    <p>Total Aduan Masuk</p>
+                </div>
+            </div>
+            <div class="kpi-card oranye">
+                <div class="kpi-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="kpi-info">
+                    <h3 id="statMenunggu">0</h3>
+                    <p>Menunggu Verifikasi</p>
+                </div>
+            </div>
+            <div class="kpi-card biru">
+                <div class="kpi-icon"><i class="fa-solid fa-spinner"></i></div>
+                <div class="kpi-info">
+                    <h3 id="statDiproses">0</h3>
+                    <p>Sedang Diproses</p>
+                </div>
+            </div>
+            <div class="kpi-card hijau">
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="kpi-info">
+                    <h3 id="statSelesai">0</h3>
+                    <p>Selesai Ditangani</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pengaduan-layout">
+            <div class="panel-box" style="margin-bottom:0;">
+                <h2><i class="fa-solid fa-paper-plane"></i> Formulir Pengaduan Online</h2>
+                <div class="alert-tiket" id="alertTiket"></div>
+                <form id="formPengaduan">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="namaPelapor">Nama Pelapor (Dirahasiakan di Publik)</label>
+                            <input type="text" id="namaPelapor" placeholder="Nama lengkap Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kontakPelapor">No. HP / WhatsApp</label>
+                            <input type="tel" id="kontakPelapor" placeholder="08xxxxxxxxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kategoriAduan">Kategori Pelanggaran</label>
+                            <select id="kategoriAduan" required>
+                                <option value="Ketertiban Umum">Ketertiban Umum</option>
+                                <option value="Pelanggaran Perda">Pelanggaran Perda</option>
+                                <option value="Bangunan & Reklame">Bangunan &amp; Reklame</option>
+                                <option value="Lingkungan & Sampah">Lingkungan &amp; Sampah</option>
+                                <option value="Kebisingan / Keramaian">Kebisingan / Keramaian</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lokasiAduan">Lokasi Kejadian</label>
+                            <input type="text" id="lokasiAduan" placeholder="Contoh: Jl. Dr. Salasa, Fakfak" required>
+                        </div>
+                        <div class="form-group full">
+                            <label for="ringkasanAduan">Uraian Pengaduan</label>
+                            <textarea id="ringkasanAduan" placeholder="Jelaskan kronologi dan kondisi gangguan ketertiban secara singkat dan jelas..." required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-merah" style="border:none;cursor:pointer;margin-top:14px;">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Pengaduan
+                    </button>
+                </form>
+            </div>
+
+            <div class="panel-box" style="margin-bottom:0;">
+                <h2><i class="fa-solid fa-chart-pie"></i> Grafik Status Penyelesaian</h2>
+                <div class="chart-canvas-wrap">
+                    <canvas id="chartPengaduan"></canvas>
+                </div>
+                <p style="font-size:13px;color:#666;margin-top:12px;">
+                    <i class="fa-solid fa-shield-halved" style="color:var(--merah);"></i>
+                    Identitas pribadi pelapor tidak ditampilkan pada papan transparansi publik.
+                </p>
+            </div>
+        </div>
+
+        <div class="panel-box">
+            <h2><i class="fa-solid fa-list-check"></i> Transparansi Daftar Pengaduan Masuk</h2>
+            <div class="filter-controls">
+                <input type="text" id="cariAduan" placeholder="Cari kode tiket, lokasi, atau uraian...">
+                <select id="filterStatusAduan">
+                    <option value="">Semua Status</option>
+                    <option value="Menunggu">Menunggu</option>
+                    <option value="Diproses">Diproses</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
+            </div>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Kode Tiket</th>
+                            <th>Tanggal</th>
+                            <th>Kategori</th>
+                            <th>Lokasi</th>
+                            <th>Ringkasan Laporan</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelPengaduan"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="../assets/js/portal-data.js"></script>
+<script>
+(function () {
+    const STORAGE_KEY = 'satpol_pengaduan_list';
+    let aduanList = [];
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        aduanList = Array.isArray(saved) && saved.length ? saved : [...window.SATPOL_DATA.pengaduanDefault];
+    } catch {
+        aduanList = [...window.SATPOL_DATA.pengaduanDefault];
+    }
+
+    let chartInstance = null;
+
+    function badgeClass(status) {
+        if (status === 'Selesai') return 'badge-success';
+        if (status === 'Diproses') return 'badge-info';
+        return 'badge-warning';
+    }
+
+    function escapeHtml(str) {
+        return String(str || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function render() {
+        const q = document.getElementById('cariAduan').value.toLowerCase();
+        const st = document.getElementById('filterStatusAduan').value;
+
+        const menunggu = aduanList.filter(x => x.status === 'Menunggu').length;
+        const diproses = aduanList.filter(x => x.status === 'Diproses').length;
+        const selesai = aduanList.filter(x => x.status === 'Selesai').length;
+
+        document.getElementById('statTotal').textContent = aduanList.length;
+        document.getElementById('statMenunggu').textContent = menunggu;
+        document.getElementById('statDiproses').textContent = diproses;
+        document.getElementById('statSelesai').textContent = selesai;
+
+        const filtered = aduanList.filter(item => {
+            const matchSt = !st || item.status === st;
+            const matchQ = !q || `${item.kode} ${item.kategori} ${item.lokasi} ${item.ringkasan}`.toLowerCase().includes(q);
+            return matchSt && matchQ;
+        });
+
+        const tbody = document.getElementById('tabelPengaduan');
+        tbody.innerHTML = filtered.length ? filtered.map(item => `
+            <tr>
+                <td><strong>${escapeHtml(item.kode)}</strong></td>
+                <td>${escapeHtml(item.tanggal)}</td>
+                <td>${escapeHtml(item.kategori)}</td>
+                <td>${escapeHtml(item.lokasi)}</td>
+                <td>${escapeHtml(item.ringkasan)}</td>
+                <td><span class="badge ${badgeClass(item.status)}">${escapeHtml(item.status)}</span></td>
+            </tr>
+        `).join('') : '<tr><td colspan="6" style="text-align:center;color:#888;">Tidak ada data pengaduan yang sesuai filter.</td></tr>';
+
+        if (typeof Chart !== 'undefined') {
+            const ctx = document.getElementById('chartPengaduan');
+            if (chartInstance) chartInstance.destroy();
+            chartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Menunggu', 'Diproses', 'Selesai'],
+                    datasets: [{
+                        data: [menunggu, diproses, selesai],
+                        backgroundColor: ['#f59e0b', '#0d6efd', '#198754'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+    }
+
+    document.getElementById('formPengaduan').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nextNum = String(aduanList.length + 1).padStart(3, '0');
+        const kode = `ADU-2026-${nextNum}`;
+        const tgl = new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jayapura', day: '2-digit', month: 'short', year: 'numeric' }).format(new Date());
+
+        aduanList.unshift({
+            kode,
+            tanggal: tgl,
+            kategori: document.getElementById('kategoriAduan').value,
+            lokasi: document.getElementById('lokasiAduan').value.trim(),
+            ringkasan: document.getElementById('ringkasanAduan').value.trim(),
+            status: 'Menunggu'
+        });
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(aduanList));
+        this.reset();
+
+        const alertEl = document.getElementById('alertTiket');
+        alertEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> Pengaduan berhasil dikirim! Kode tiket Anda: <strong>${kode}</strong>. Pantau status penyelesaian pada tabel di bawah.`;
+        alertEl.style.display = 'block';
+        render();
+    });
+
+    document.getElementById('cariAduan').addEventListener('input', render);
+    document.getElementById('filterStatusAduan').addEventListener('change', render);
+    render();
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

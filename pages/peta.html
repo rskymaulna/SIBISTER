@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Peta Tibumtranmas — SIBISTER | Satpol PP Fakfak</title>
+<link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<style>
+body {
+    background: #f4f6f9;
+}
+
+.peta-page {
+    padding: 30px 0;
+}
+
+.judul {
+    color: #a92d18;
+    margin-bottom: 12px;
+}
+
+.peta-page > p {
+    margin-bottom: 20px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+}
+
+.sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0002;
+}
+
+.sidebar h3 {
+    color: #a92d18;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 12px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+}
+
+.kerawanan {
+    background: #dc3545;
+}
+
+.ipkku {
+    background: #0d6efd;
+}
+
+.kelembagaan {
+    background: #198754;
+}
+
+.sidebar button:hover {
+    opacity: 0.8;
+}
+
+.informasi {
+    background: #f1f3f5;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.map-container {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0002;
+}
+
+#map {
+    height: 550px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+footer {
+    background: #a92d18;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+@media(max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header & Navbar -->
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html" class="active">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container peta-page">
+
+    <h2 class="judul"><i class="fa-solid fa-map-location-dot"></i> PETA INFORMASI </h2>
+
+    <p>
+        Sistem Informasi Wilayah Ketenteraman dan
+        Ketertiban Umum Kabupaten Fakfak.
+    </p>
+
+    <div class="layout">
+
+        <!-- MENU DATA -->
+
+        <div class="sidebar">
+
+            <h3>DATA PETA</h3>
+
+            <button class="kerawanan"
+            onclick="tampilkanData('kerawanan')">
+                <i class="fa-solid fa-triangle-exclamation"></i> DATA KERAWANAN
+            </button>
+
+            <button class="ipkku"
+            onclick="tampilkanData('ipkku')">
+                <i class="fa-solid fa-chart-line"></i> DATA IPKKU
+            </button>
+
+            <button class="kelembagaan"
+            onclick="tampilkanData('kelembagaan')">
+                <i class="fa-solid fa-building-shield"></i> DATA KELEMBAGAAN
+            </button>
+
+            <div class="informasi" id="informasi">
+                <h4>INFORMASI PETA</h4>
+                Pilih kategori data.
+            </div>
+
+        </div>
+
+        <!-- PETA -->
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+    </div>
+
+    <div class="panel-box" style="margin-top:26px;">
+        <h2><i class="fa-solid fa-triangle-exclamation"></i> Daftar Area Data Rawan &amp; Gangguan Tibumtranmas</h2>
+        <p style="font-size:13.5px;color:#666;margin-bottom:14px;">Klik tombol <strong>Lihat di Peta</strong> untuk langsung menyorot titik lokasi rawan pada peta interaktif di atas.</p>
+        <div class="data-table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Area / Lokasi Rawan</th>
+                        <th>Distrik</th>
+                        <th>Jenis Potensi Gangguan</th>
+                        <th>Tingkat</th>
+                        <th>Status Penanganan</th>
+                        <th>Peta</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelDataRawan"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    SIBISTER | SATPOL PP KABUPATEN FAKFAK
+</footer>
+
+<script src="../assets/js/portal-data.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+// MEMBUAT PETA
+
+var map = L.map('map').setView([-2.922, 132.298], 13);
+
+var baseSatelit = L.layerGroup([
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri',
+        maxZoom: 19
+    }),
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 19
+    })
+]).addTo(map);
+
+var baseJalan = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri',
+    maxZoom: 19
+});
+
+L.control.layers({
+    'Citra Satelit': baseSatelit,
+    'Peta Jalan': baseJalan
+}).addTo(map);
+
+
+// KELOMPOK LAYER
+
+var layerKerawanan = L.layerGroup();
+var layerIpkku = L.layerGroup();
+var layerKelembagaan = L.layerGroup();
+
+
+// DATA KERAWANAN DARI PORTAL DATA
+
+var kerawanan = (window.SATPOL_DATA && window.SATPOL_DATA.tibumtranmasRawan) || [];
+var rawanMarkers = [];
+
+
+// DATA IPKKU
+
+var ipkku = [
+    {
+        nama: "Indeks IPKKU Kabupaten Fakfak",
+        indikator: "Indikator penyelenggaraan Trantibum",
+        nilai: "Belum diisi",
+        lat: -2.93,
+        lng: 132.31
+    }
+];
+
+
+// DATA KELEMBAGAAN
+
+var kelembagaan = [
+    {
+        nama: "Satpol PP Kabupaten Fakfak",
+        keterangan: "Instansi penyelenggara Trantibum",
+        lat: -2.91,
+        lng: 132.29
+    }
+];
+
+
+// MARKER KERAWANAN
+
+kerawanan.forEach(function(d, idx) {
+    var warna = d.tingkat === "Tinggi" ? "#dc3545" : (d.tingkat === "Sedang" ? "#f59e0b" : "#198754");
+    var m = L.circleMarker([d.lat, d.lng], {
+        radius: 10,
+        color: warna,
+        fillColor: warna,
+        fillOpacity: 0.85
+    })
+    .bindPopup(
+        "<b>DATA KERAWANAN</b><br>" +
+        "Lokasi: " + d.nama + " (" + d.distrik + ")<br>" +
+        "Jenis: " + d.jenis + "<br>" +
+        "Tingkat: <b>" + d.tingkat + "</b><br>" +
+        "Status: " + d.status
+    )
+    .addTo(layerKerawanan);
+    rawanMarkers[idx] = m;
+});
+
+function fokusLokasiRawan(idx) {
+    tampilkanData('kerawanan');
+    var d = kerawanan[idx];
+    if (!d) return;
+    map.setView([d.lat, d.lng], 15);
+    if (rawanMarkers[idx]) rawanMarkers[idx].openPopup();
+    window.scrollTo({ top: 180, behavior: 'smooth' });
+}
+
+document.getElementById('tabelDataRawan').innerHTML = kerawanan.map(function(d, idx) {
+    var cls = d.tingkat === 'Tinggi' ? 'badge-danger' : (d.tingkat === 'Sedang' ? 'badge-warning' : 'badge-success');
+    return '<tr>' +
+        '<td>' + (idx + 1) + '</td>' +
+        '<td><strong>' + d.nama + '</strong></td>' +
+        '<td>' + d.distrik + '</td>' +
+        '<td>' + d.jenis + '</td>' +
+        '<td><span class="badge ' + cls + '">' + d.tingkat + '</span></td>' +
+        '<td>' + d.status + '</td>' +
+        '<td><button type="button" onclick="fokusLokasiRawan(' + idx + ')" style="padding:6px 12px;background:#b30000;color:#fff;border:none;border-radius:5px;cursor:pointer;font-size:12.5px;"><i class="fa-solid fa-location-crosshairs"></i> Lihat di Peta</button></td>' +
+    '</tr>';
+}).join('');
+
+
+// MARKER IPKKU
+
+ipkku.forEach(function(d) {
+
+    L.circleMarker([d.lat, d.lng], {
+        radius: 10,
+        color: "blue",
+        fillColor: "blue",
+        fillOpacity: 0.8
+    })
+    .bindPopup(
+        "<b>DATA IPKKU</b><br>" +
+        "Nama: " + d.nama + "<br>" +
+        "Indikator: " + d.indikator + "<br>" +
+        "Nilai: " + d.nilai
+    )
+    .addTo(layerIpkku);
+
+});
+
+
+// MARKER KELEMBAGAAN
+
+kelembagaan.forEach(function(d) {
+
+    L.circleMarker([d.lat, d.lng], {
+        radius: 10,
+        color: "green",
+        fillColor: "green",
+        fillOpacity: 0.8
+    })
+    .bindPopup(
+        "<b>DATA KELEMBAGAAN</b><br>" +
+        "Nama: " + d.nama + "<br>" +
+        "Keterangan: " + d.keterangan
+    )
+    .addTo(layerKelembagaan);
+
+});
+
+
+// FUNGSI MENAMPILKAN DATA
+
+function tampilkanData(jenis) {
+
+    map.removeLayer(layerKerawanan);
+    map.removeLayer(layerIpkku);
+    map.removeLayer(layerKelembagaan);
+
+    if (jenis === "kerawanan") {
+
+        layerKerawanan.addTo(map);
+
+        document.getElementById("informasi").innerHTML =
+        "<h4>DATA KERAWANAN</h4>" +
+        "Informasi lokasi rawan gangguan ketenteraman dan ketertiban umum.";
+
+    }
+
+    else if (jenis === "ipkku") {
+
+        layerIpkku.addTo(map);
+
+        document.getElementById("informasi").innerHTML =
+        "<h4>DATA IPKKU</h4>" +
+        "Informasi indeks penyelenggaraan ketenteraman dan ketertiban umum.";
+
+    }
+
+    else if (jenis === "kelembagaan") {
+
+        layerKelembagaan.addTo(map);
+
+        document.getElementById("informasi").innerHTML =
+        "<h4>DATA KELEMBAGAAN</h4>" +
+        "Informasi instansi dan unsur kelembagaan terkait.";
+
+    }
+
+}
+
+
+// TAMPILAN AWAL
+
+tampilkanData("kerawanan");
+
+setTimeout(function() {
+    map.invalidateSize();
+}, 300);
+
+</script>
+
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

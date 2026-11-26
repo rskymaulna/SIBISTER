@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Dokumentasi — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .galeri-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .galeri-filter button {
+            padding: 9px 18px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 999px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #444;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .galeri-filter button.active,
+        .galeri-filter button:hover {
+            background: var(--merah);
+            color: #fff;
+            border-color: var(--merah);
+        }
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 20px;
+        }
+        .galeri-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .galeri-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+        }
+        .galeri-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .galeri-caption {
+            padding: 14px 16px;
+        }
+        .galeri-caption h3 {
+            font-size: 15px;
+            color: #222;
+            margin: 6px 0 4px;
+            line-height: 1.4;
+        }
+        .galeri-caption small {
+            color: #777;
+            font-size: 12.5px;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox-inner {
+            max-width: 900px;
+            width: 100%;
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .lightbox-inner img {
+            width: 100%;
+            max-height: 72vh;
+            object-fit: contain;
+            display: block;
+            background: #000;
+        }
+        .lightbox-bar {
+            padding: 14px 18px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .lightbox-close {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html" class="active">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <a href="profil.html">Profil</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Galeri Dokumentasi</span>
+    </div>
+</div>
+
+<section class="module-section">
+    <div class="container">
+        <div class="module-header">
+            <h1><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi Kegiatan</h1>
+            <p>Kumpulan dokumentasi foto operasional penertiban, kegiatan lapangan, bidang Damkar, dan profil Satpol PP Kabupaten Fakfak. Klik foto untuk memperbesar.</p>
+        </div>
+
+        <div class="galeri-filter" id="galeriFilter"></div>
+        <div class="galeri-grid" id="galeriGrid"></div>
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+        <img id="lbImg" src="" alt="">
+        <div class="lightbox-bar">
+            <div>
+                <strong id="lbTitle"></strong>
+                <div id="lbMeta" style="font-size:12.5px;color:#ccc;"></div>
+            </div>
+            <button type="button" class="lightbox-close" id="lbClose" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/portal-data.js"></script>
+<script>
+(function () {
+    const items = window.SATPOL_DATA.galeri;
+    const cats = ['Semua', ...new Set(items.map(x => x.kategori))];
+    let activeCat = 'Semua';
+
+    const filterEl = document.getElementById('galeriFilter');
+    const gridEl = document.getElementById('galeriGrid');
+    const lb = document.getElementById('lightbox');
+
+    function renderFilter() {
+        filterEl.innerHTML = cats.map(c => `<button type="button" class="${c === activeCat ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('');
+        filterEl.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                activeCat = btn.dataset.cat;
+                renderFilter();
+                renderGrid();
+            });
+        });
+    }
+
+    function renderGrid() {
+        const list = activeCat === 'Semua' ? items : items.filter(x => x.kategori === activeCat);
+        gridEl.innerHTML = list.map((item, idx) => `
+            <div class="galeri-card" data-idx="${idx}">
+                <img src="${item.gambar}" alt="${item.judul}" loading="lazy">
+                <div class="galeri-caption">
+                    <span class="badge badge-danger">${item.kategori}</span>
+                    <h3>${item.judul}</h3>
+                    <small><i class="fa-regular fa-calendar"></i> ${item.tanggal}</small>
+                </div>
+            </div>
+        `).join('');
+
+        gridEl.querySelectorAll('.galeri-card').forEach((card, i) => {
+            card.addEventListener('click', () => {
+                const item = list[i];
+                document.getElementById('lbImg').src = item.gambar;
+                document.getElementById('lbImg').alt = item.judul;
+                document.getElementById('lbTitle').textContent = item.judul;
+                document.getElementById('lbMeta').textContent = `${item.kategori} • ${item.tanggal}`;
+                lb.classList.add('open');
+            });
+        });
+    }
+
+    document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+
+    renderFilter();
+    renderGrid();
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

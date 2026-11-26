@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita & Kegiatan — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* === BREADCRUMB === */
+        .breadcrumb {
+            background: #f4f4f4;
+            padding: 15px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .breadcrumb a {
+            color: #b30000;
+        }
+        .breadcrumb span {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* === HALAMAN BERITA === */
+        .page-berita {
+            padding: 40px 0 60px;
+        }
+        .page-berita h1 {
+            font-size: 32px;
+            color: #b30000;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #b30000;
+            padding-bottom: 10px;
+        }
+
+        /* === FILTER & PENCARIAN === */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-bar select,
+        .filter-bar input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .filter-bar button {
+            padding: 10px 20px;
+            background: #b30000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .filter-bar button:hover {
+            background: #8b0000;
+        }
+
+        /* === GRID BERITA === */
+        .berita-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .berita-card-large {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .berita-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+        .berita-card-large img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .berita-content {
+            padding: 20px;
+        }
+        .berita-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .berita-kategori {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #b30000;
+            color: white;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .berita-content h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .berita-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .baca-selengkapnya {
+            color: #b30000;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .baca-selengkapnya:hover {
+            gap: 8px;
+        }
+
+        /* === PAGINASI === */
+        .paginasi {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+        .paginasi a {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .paginasi a:hover,
+        .paginasi a.active {
+            background: #b30000;
+            color: white;
+            border-color: #b30000;
+        }
+
+        /* === SIDEBAR === */
+        .berita-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+        .sidebar-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+        }
+        .sidebar-box h3 {
+            font-size: 18px;
+            color: #b30000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .berita-terbaru li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .berita-terbaru li:last-child {
+            border-bottom: none;
+        }
+        .berita-terbaru a {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .berita-terbaru a:hover {
+            color: #b30000;
+        }
+        .berita-terbaru .tgl {
+            font-size: 12px;
+            color: #888;
+        }
+        .kategori-list li a {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        .kategori-list li a:hover {
+            color: #b30000;
+            padding-left: 5px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .berita-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .berita-list-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        @media (max-width: 600px) {
+            .berita-list-grid {
+                grid-template-columns: 1fr;
+            }
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header & Navbar -->
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html" class="active">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Berita & Kegiatan</span>
+    </div>
+</div>
+
+<!-- Konten Halaman Berita -->
+<section class="page-berita container">
+    <h1><i class="fa-solid fa-newspaper"></i> Berita & Kegiatan</h1>
+
+    <!-- Filter & Pencarian -->
+    <div class="filter-bar">
+        <div class="filter-group">
+           
+        </div>
+        <div class="filter-group">
+            <input type="text" placeholder="Cari berita...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
+        </div>
+    </div>
+
+    <div class="berita-wrapper">
+        <!-- Daftar Berita -->
+        <div class="berita-kiri">
+            <div class="berita-list-grid">
+
+                <!-- Berita 1 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=penertiban-pkl-jl-dr-salasa">
+                        <img src="../assets/images/berita/penertiban-lapak-pkl.jpeg" alt="Penertiban PKL">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Patroli & Penertiban</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 24 Mei 2026</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=penertiban-pkl-jl-dr-salasa">Penertiban PKL di Jalan Dr. Salasa Berjalan Kondusif</a></h3>
+                        <p>Satpol PP Kabupaten Fakfak melaksanakan operasi penertiban pedagang kaki lima di sepanjang Jalan Dr. Salasa. Kegiatan berjalan lancar tanpa ada perlawanan dari para pedagang...</p>
+                        <a href="detail-berita.html?slug=penertiban-pkl-jl-dr-salasa" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 2 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=rakor-penegakan-perda">
+                        <img src="../assets/images/berita/penertiban-air-ilegal-tirta-pala.jpeg" alt="Rakor Perda">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Penegakan Perda</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 18 Mei 2025</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=rakor-penegakan-perda">Rapat Koordinasi Penegakan Perda dengan Instansi Terkait</a></h3>
+                        <p>Rapat koordinasi dibuka langsung oleh Kepala Satpol PP Kabupaten Fakfak, membahas langkah-langkah strategis dalam penegakan Peraturan Daerah yang belum optimal...</p>
+                        <a href="detail-berita.html?slug=rakor-penegakan-perda" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 3 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=peningkatan-kapasitas-personel">
+                        <img src="../assets/images/damkar/edukasi-armada-damkar-sp2-bomberay.jpeg" alt="Peningkatan Kapasitas">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Sosialisasi</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 16 Mei 2025</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=peningkatan-kapasitas-personel">Peningkatan Kapasitas Personel Satpol PP Fakfak</a></h3>
+                        <p>Sebanyak 85 personel Satpol PP Kabupaten Fakfak mengikuti pelatihan peningkatan kapasitas yang berlangsung selama 3 hari di Aula Kantor Bupati Fakfak...</p>
+                        <a href="detail-berita.html?slug=peningkatan-kapasitas-personel" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 4 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=patroli-malam-gabungan">
+                        <img src="../assets/images/berita/penertiban-lapak-pkl.jpeg" alt="Patroli Malam">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Patroli & Penertiban</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 10 Mei 2025</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=patroli-malam-gabungan">Patroli Malam Gabungan Jaga Keamanan Kota Fakfak</a></h3>
+                        <p>Satpol PP bersama Polres Fakfak dan Kodim Fakfak melaksanakan patroli malam gabungan di titik-titik rawan dan pusat keramaian guna menjaga keamanan dan ketertiban masyarakat...</p>
+                        <a href="detail-berita.html?slug=patroli-malam-gabungan" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 5 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=sosialisasi-perda-no-2-2023">
+                        <img src="../assets/images/berita/himbauan-arahan-penertiban.jpeg" alt="Sosialisasi Perda">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Sosialisasi</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 22 Mei 2025</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=sosialisasi-perda-no-2-2023">Sosialisasi Perda No.2 Tahun 2023 di Kelurahan Fakfak Tengah</a></h3>
+                        <p>Tim Satpol PP melaksanakan sosialisasi Peraturan Daerah Nomor 2 Tahun 2023 tentang Ketertiban Umum kepada warga masyarakat di Kelurahan Fakfak Tengah...</p>
+                        <a href="detail-berita.html?slug=sosialisasi-perda-no-2-2023" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Berita 6 -->
+                <article class="berita-card-large">
+                    <a href="detail-berita.html?slug=apel-pagi-pengarahan-pimpinan">
+                        <img src="../assets/images/berita/serah-terima-trantibum.jpeg" alt="Apel Pagi">
+                    </a>
+                    <div class="berita-content">
+                        <span class="berita-kategori">Kegiatan</span>
+                        <div class="berita-meta">
+                            <span><i class="fa-regular fa-calendar"></i> 20 Mei 2025</span>
+                            <span><i class="fa-solid fa-user"></i> Admin Satpol PP</span>
+                        </div>
+                        <h3><a href="detail-berita.html?slug=apel-pagi-pengarahan-pimpinan">Apel Pagi Pengarahan Pimpinan Satpol PP Kabupaten Fakfak</a></h3>
+                        <p>Apel pagi rutin dilaksanakan setiap hari Senin sebagai sarana pembinaan kedisiplinan dan penyampaian arahan pimpinan terkait kinerja minggu yang akan datang...</p>
+                        <a href="detail-berita.html?slug=apel-pagi-pengarahan-pimpinan" class="baca-selengkapnya">Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Paginasi -->
+            <div class="paginasi">
+                <a href="#"><i class="fa-solid fa-angles-left"></i> Sebelumnya</a>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="berita-sidebar">
+            <!-- Berita Terbaru -->
+            <div class="sidebar-box">
+                <h3><i class="fa-solid fa-fire"></i> Berita Terbaru</h3>
+                <ul class="berita-terbaru">
+                    <li>
+                        <a href="detail-berita.html?slug=patroli-penertiban-pkl-pusat-kota">Satpol PP Fakfak Gelar Patroli Penertiban PKL di Pusat Kota</a>
+                        <span class="tgl">26 Mei 2025</span>
+                    </li>
+                    <li>
+                        <a href="detail-berita.html?slug=sosialisasi-perda-no-2-2023">Sosialisasi Perda No.2 Tahun 2023 kepada Warga Fakfak Selatan</a>
+                        <span class="tgl">22 Mei 2025</span>
+                    </li>
+                    <li>
+                        <a href="detail-berita.html?slug=apel-pagi-pengarahan-pimpinan">Apel Pagi Pengarahan Pimpinan Satpol PP Kabupaten Fakfak</a>
+                        <span class="tgl">20 Mei 2025</span>
+                    </li>
+                    <li>
+                        <a href="detail-berita.html?slug=pengamanan-hari-jadi-fakfak">Persiapan Pengamanan Acara Hari Jadi Kabupaten Fakfak</a>
+                        <span class="tgl">15 Mei 2025</span>
+                    </li>
+                    <li>
+                        <a href="detail-berita.html?slug=evaluasi-bulanan-kinerja">Evaluasi Bulanan Kinerja Satpol PP Kabupaten Fakfak</a>
+                        <span class="tgl">10 Mei 2025</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Kategori -->
+            <div class="sidebar-box">
+                <h3><i class="fa-solid fa-folder-open"></i> Kategori</h3>
+                <ul class="kategori-list">
+                    <li><a href="#">Penegakan Perda <span>(12)</span></a></li>
+                    <li><a href="#">Patroli & Penertiban <span>(24)</span></a></li>
+                    <li><a href="#">Sosialisasi <span>(8)</span></a></li>
+                    <li><a href="#">Kegiatan <span>(15)</span></a></li>
+                    <li><a href="#">Pengumuman <span>(5)</span></a></li>
+                </ul>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="#">Kegiatan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Informasi Perda</a></li>
+                    <li><a href="#">Pengaduan</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p style="margin-top:10px;"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    const filterInput = document.querySelector('.filter-bar input');
+    const filterBtn = document.querySelector('.filter-bar button');
+    const cards = Array.from(document.querySelectorAll('.berita-card-large'));
+
+    function applyFilter() {
+        const q = (filterInput ? filterInput.value : '').trim().toLowerCase();
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = (!q || text.includes(q)) ? '' : 'none';
+        });
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const initialQ = params.get('q');
+    if (initialQ && filterInput) {
+        filterInput.value = initialQ;
+        applyFilter();
+    }
+    if (filterInput) filterInput.addEventListener('input', applyFilter);
+    if (filterBtn) filterBtn.addEventListener('click', (e) => { e.preventDefault(); applyFilter(); });
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>

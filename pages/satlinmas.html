@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satlinmas — SIBISTER | Satpol PP Fakfak</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/logo-satpol-pp.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .kegiatan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .kegiatan-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        .kegiatan-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .kegiatan-body {
+            padding: 16px;
+        }
+        .kegiatan-body h3 {
+            font-size: 16px;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .kegiatan-meta {
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .kegiatan-meta i { color: var(--merah); width: 16px; }
+        @media (max-width: 900px) { .kegiatan-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="header-top">
+            <a href="../index.html" class="logo-wrap">
+                <img src="../assets/images/logos/logo-fakfak.png" alt="Logo Kabupaten Fakfak">
+                <div class="logo-text">
+                    <span class="brand-badge">SIBISTER</span>
+                    <h1>SATUAN POLISI PAMONG PRAJA<br>KABUPATEN FAKFAK</h1>
+                    <p>Sistem Informasi Bisa Tertib • Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                </div>
+                <img src="../assets/images/logos/logo-satpol-pp.png" alt="Logo Satpol PP">
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="Cari informasi, berita, atau layanan...">
+                <button type="submit" aria-label="Cari"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Beranda</a></li>
+                <li>
+                    <a href="profil.html">Profil <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="profil.html"><i class="fa-solid fa-building"></i> Profil Instansi</a></li>
+                        <li><a href="profil.html#before-after"><i class="fa-solid fa-images"></i> Dokumentasi Before-After</a></li>
+                        <li><a href="personel.html"><i class="fa-solid fa-users"></i> Data Personel</a></li>
+                        <li><a href="galeri.html"><i class="fa-solid fa-photo-film"></i> Galeri Dokumentasi</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="informasi-perda.html" class="active">Operasional <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="informasi-perda.html"><i class="fa-solid fa-scale-balanced"></i> Penegakan Perda</a></li>
+                        <li><a href="patroli.html"><i class="fa-solid fa-shield-halved"></i> Patroli</a></li>
+                        <li><a href="peta.html"><i class="fa-solid fa-map-location-dot"></i> Tibumtranmas &amp; Peta</a></li>
+                        <li><a href="satlinmas.html"><i class="fa-solid fa-people-group"></i> Satlinmas</a></li>
+                        <li><a href="ppns.html"><i class="fa-solid fa-gavel"></i> PPNS</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="layanan.html">Layanan <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="layanan.html"><i class="fa-solid fa-grip"></i> Pusat Layanan</a></li>
+                        <li><a href="pengaduan.html"><i class="fa-solid fa-bullhorn"></i> Pengaduan Masyarakat</a></li>
+                        <li><a href="informasi-layanan.html"><i class="fa-solid fa-circle-info"></i> Informasi Layanan</a></li>
+                        <li><a href="kontak.html"><i class="fa-solid fa-phone"></i> Kontak Layanan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="kinerja-anggaran.html">Transparansi <i class="fa-solid fa-chevron-down nav-arrow"></i></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="kinerja-anggaran.html"><i class="fa-solid fa-chart-pie"></i> Kinerja &amp; Anggaran</a></li>
+                        <li><a href="berita.html"><i class="fa-solid fa-newspaper"></i> Berita &amp; Kegiatan</a></li>
+                    </ul>
+                </li>
+                <li><a href="damkar.html">Damkar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-breadcrumb">
+    <div class="container">
+        <a href="../index.html">Beranda</a> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Operasional</span> <i class="fa-solid fa-chevron-right breadcrumb-sep"></i> <span>Satlinmas</span>
+    </div>
+</div>
+
+<section class="module-section">
+    <div class="container">
+        <div class="module-header">
+            <h1><i class="fa-solid fa-people-group"></i> Satlinmas (Satuan Perlindungan Masyarakat)</h1>
+            <p>Data kekuatan anggota Satlinmas, sebaran Pos Linmas di wilayah Kabupaten Fakfak, serta dokumentasi kegiatan perlindungan masyarakat.</p>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fa-solid fa-people-group"></i></div>
+                <div class="kpi-info"><h3 id="kpiAnggota">0</h3><p>Total Anggota Satlinmas</p></div>
+            </div>
+            <div class="kpi-card biru">
+                <div class="kpi-icon"><i class="fa-solid fa-house-flag"></i></div>
+                <div class="kpi-info"><h3 id="kpiPos">0</h3><p>Pos Linmas Tersebar</p></div>
+            </div>
+            <div class="kpi-card hijau">
+                <div class="kpi-icon"><i class="fa-solid fa-map"></i></div>
+                <div class="kpi-info"><h3 id="kpiDistrik">0</h3><p>Distrik Terjangkau</p></div>
+            </div>
+            <div class="kpi-card oranye">
+                <div class="kpi-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                <div class="kpi-info"><h3 id="kpiKegiatan">0</h3><p>Kegiatan Tahun 2026</p></div>
+            </div>
+        </div>
+
+        <div class="panel-box">
+            <h2><i class="fa-solid fa-map-pin"></i> Data Sebaran Pos Linmas</h2>
+            <div class="filter-controls">
+                <input type="text" id="cariPos" placeholder="Cari nama pos atau distrik...">
+                <select id="filterDistrik">
+                    <option value="">Semua Distrik</option>
+                </select>
+            </div>
+            <div class="data-table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pos Linmas</th>
+                            <th>Distrik</th>
+                            <th>Jumlah Anggota</th>
+                            <th>Penanggung Jawab</th>
+                            <th>Kondisi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelPos"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel-box">
+            <h2><i class="fa-solid fa-camera"></i> Dokumentasi &amp; Laporan Kegiatan Satlinmas</h2>
+            <div class="kegiatan-grid" id="gridKegiatan"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>SIBISTER — Satpol PP Fakfak</h4>
+                <p>Menegakkan Perda, Mewujudkan Ketertiban Umum</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="informasi-perda.html">Informasi Perda</a></li>
+                    <li><a href="pengaduan.html">Pengaduan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Media Sosial</h4>
+                <p>Ikuti kami di media sosial</p>
+                <p class="fakfak-membara"><strong>SIBISTER Satpol PP Fakfak</strong></p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 SIBISTER — Satuan Polisi Pamong Praja Kabupaten Fakfak. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/portal-data.js"></script>
+<script>
+(function () {
+    const s = window.SATPOL_DATA.satlinmas;
+    document.getElementById('kpiAnggota').textContent = s.ringkasan.anggota;
+    document.getElementById('kpiPos').textContent = s.ringkasan.posLinmas;
+    document.getElementById('kpiDistrik').textContent = s.ringkasan.distrik;
+    document.getElementById('kpiKegiatan').textContent = s.ringkasan.kegiatan;
+
+    const distrikSel = document.getElementById('filterDistrik');
+    [...new Set(s.pos.map(x => x.distrik))].forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        distrikSel.appendChild(opt);
+    });
+
+    function renderPos() {
+        const q = document.getElementById('cariPos').value.toLowerCase();
+        const d = distrikSel.value;
+        const filtered = s.pos.filter(p => (!d || p.distrik === d) && (!q || `${p.namaPos} ${p.distrik}`.toLowerCase().includes(q)));
+        document.getElementById('tabelPos').innerHTML = filtered.length ? filtered.map((p, i) => `
+            <tr>
+                <td>${i + 1}</td>
+                <td><strong>${p.namaPos}</strong></td>
+                <td>${p.distrik}</td>
+                <td>${p.anggota} Orang</td>
+                <td>${p.penanggungJawab}</td>
+                <td><span class="badge ${p.kondisi.includes('Aktif') ? 'badge-success' : 'badge-warning'}">${p.kondisi}</span></td>
+            </tr>
+        `).join('') : '<tr><td colspan="6" style="text-align:center;color:#888;">Pos Linmas tidak ditemukan.</td></tr>';
+    }
+
+    document.getElementById('gridKegiatan').innerHTML = s.kegiatan.map(k => `
+        <div class="kegiatan-card">
+            <img src="${k.gambar}" alt="${k.judul}">
+            <div class="kegiatan-body">
+                <h3>${k.judul}</h3>
+                <div class="kegiatan-meta">
+                    <span><i class="fa-regular fa-calendar"></i> ${k.tanggal}</span>
+                    <span><i class="fa-solid fa-location-dot"></i> ${k.lokasi}</span>
+                    <span><i class="fa-solid fa-users"></i> ${k.peserta}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    document.getElementById('cariPos').addEventListener('input', renderPos);
+    distrikSel.addEventListener('change', renderPos);
+    renderPos();
+})();
+</script>
+<script src="../assets/js/topbar-clock.js" defer></script>
+</body>
+</html>
