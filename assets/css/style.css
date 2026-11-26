@@ -965,6 +965,33 @@ nav {
     color: #888;
 }
 
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.lihat-semua-inline {
+    color: var(--merah);
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lihat-semua-inline i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.lihat-semua-inline:hover i {
+    transform: translateX(4px);
+}
+
 .lihat-semua {
     text-align: right;
     margin-top: 15px;
