@@ -900,23 +900,23 @@ nav {
 }
 
 .merah-card {
-    background: linear-gradient(135deg, #c81010 0%, #8f0000 62%, #590000 100%);
+    background: linear-gradient(135deg, #d92626 0%, #b30000 100%);
 }
 
 .biru-card {
-    background: linear-gradient(135deg, #0b74de 0%, #004e9e 62%, #002f66 100%);
+    background: linear-gradient(135deg, #2589f5 0%, #0062cc 100%);
 }
 
 .hijau-card {
-    background: linear-gradient(135deg, #0da642 0%, #007529 62%, #004a1a 100%);
+    background: linear-gradient(135deg, #22b855 0%, #008f33 100%);
 }
 
 .oranye-card {
-    background: linear-gradient(135deg, #ff9f0a 0%, #d96b00 62%, #994300 100%);
+    background: linear-gradient(135deg, #ffb02e 0%, #e67e00 100%);
 }
 
 .ungu-card {
-    background: linear-gradient(135deg, #7c42e8 0%, #5221ad 62%, #321073 100%);
+    background: linear-gradient(135deg, #8c54f0 0%, #5e2ec4 100%);
 }
 
 /* === KONTEN UTAMA === */
